@@ -1,0 +1,143 @@
+\documentclass[a4paper, oneside, openany]{report}
+% a4paper - формат листа А4
+% oneside - односторонний вывод
+% openany - начинаем новую главу со следующей новой страницей
+% 14pt - стандартный размер шрифта 
+
+\usepackage{ragged2e} % патек для нормального выравнивания текста
+
+\usepackage{geometry} % пакет для работы с разметкой страницы
+\geometry{left=2.6cm} % левый отступ
+\geometry{right=1.1cm} % правый отступ
+\geometry{top=2.22cm} % верхний отступ
+\geometry{bottom=2.6cm} % нижний отступ
+
+\usepackage{titlesec} % пакет для работы с разделами 
+\newcommand{\sectionbreak}{\clearpage} % что каждый раздел начинался с новой страницы
+
+\usepackage{parskip} % сам настроит интервалы нужным образом
+
+\setcounter{page}{4} % устанавливаем начальную страницу
+
+% настройка шрифтов и языков
+    \usepackage[english, russian]{babel} % для работы с английским и русским языками
+    \usepackage[T2A]{fontenc} % для норм паказа символов в pdf
+    \usepackage[utf8]{inputenc} % для норм взаимодействия символов для самого tex
+
+    \usepackage{fontspec} % для работы со шрифтами 
+    \usepackage{polyglossia} % Поддержка многоязычности
+    \defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+
+    \setmainlanguage[babelshorthands = true]{russian} % устанавливаемя русский как основной язык
+    \setotherlanguage{english} % устанавливаем английский как дополнительный язык
+
+    \setmainfont{Times New Roman} % устанавливаем главный шрифт 
+    \setsansfont[Ligatures=TeX]{Arial} % устонавливаем дополнительный шрмфт 
+
+    \newfontfamily\cyrillicfont[Script=Cyrillic]{Times New Roman} % делаем так, чтобы русский язык мог отображаться главным шрифтом 
+    \newfontfamily\cyrillicfontsf[Script=Cyrillic]{Arial} % делаем так, чтобы русский язык мог отображаться дополнительным шрифтом 
+
+    \newfontfamily\englishfont{Times New Roman} % делаем так, чтобы английский язык мог отображаться главным шрифтом 
+    \newfontfamily\englishfontsf{Arial} % делаем так, чтобы английский язык мог отображаться дополнительным шрифтом 
+
+% Определяем переменные 
+    \newcommand\redline{\hspace{1.5cm}} % красная строка
+    \newcommand\titlespace{\vspace{26pt}} % промежуток между заголовками 
+    \newcommand\subtitlespace{\vspace{39pt}} % промежуток между заголовком и текстом 
+    \newcommand\gostFont{\cyrillicfont \englishfont \fontsize{13pt}{15.6pt}\selectfont} % набор необходимых параметров для обычного текста
+    \newcommand\gostTitleFont{\cyrillicfont \englishfont \fontsize{14pt}{16.8pt}\selectfont \bfseries} % набор необходимых параметров для текста заголовков
+    \newcommand\gostRamkaFont{\itshape \cyrillicfontsf \fontsize{8pt}{0pt}\selectfont}
+    \newcommand\bigGostRamkaFont{\itshape \cyrillicfontsf \fontsize{8pt}{0pt}\selectfont}
+    \parskip=0pt % чтобы между абзацами было расстояние равное межстрочному интервалу
+
+
+% Рисует рамку
+    \usepackage{xltxtra}
+
+    \textheight=260mm
+    \textwidth=175mm
+    \unitlength=1mm
+    
+    \oddsidemargin=-0.5mm
+    \topmargin=-2.45cm
+
+    \def\VL{\line(0,1){15}}
+    \def\Box#1#2{\makebox(#1,5){#2}}
+    \def\simpleGrad{\noindent\hbox to 0pt{
+            \vbox to 0pt{
+                \noindent\begin{picture}(185,286.75)(5, 0)
+                    \linethickness{0.5mm}
+                    \put(-0.5, 0){\framebox(184.5,287){}}
+                    \put(-0.5, 25){\Box{7}{\gostRamkaFont Изм.}}
+                    \put(-0.5, 40){\line(1,0){185}}
+
+                    \linethickness{0.25mm}
+                    \put(-0.5, 30){\line(1,0){65}}
+                    \put(-0.5, 35){\line(1,0){65}}
+                    \linethickness{0.5mm}
+
+                    \put(6.5, 25){\line(0,1){15}}
+                    \put(6.5, 25){\Box{10}{\gostRamkaFont Лист.}}
+                    \put(16.5, 0){\line(0,1){40}}
+                    \put(16.5, 24.5){\Box{15}{\gostRamkaFont № докум.}}
+                    \put(39.5, 0){\line(0,1){40}}
+                    \put(39.5, 25){\Box{10}{\gostRamkaFont Подп.}}
+                    \put(54.5, 0){\line(0,1){40}}
+                    \put(54.5, 25){\Box{10}{\gostRamkaFont Дата}}
+                    \put(64.5, 0){\line(0,1){40}}
+                    \put(64.5, 25){\makebox(120,15){\cyrillicfont \bfseries \englishfont \fontsize{18pt}{0pt}\selectfont ДП.АС61.211111-05 81 00}}
+                    \put(-0.5, 25){\line(1,0){185}}
+
+                    \linethickness{0.25mm}
+                    \put(-0.5, 5){\line(1,0){65}}
+                    \put(-0.5, 10){\line(1,0){65}}
+                    \put(-0.5, 15){\line(1,0){65}}
+                    \put(-0.5, 20){\line(1,0){65}}
+                    \linethickness{0.5mm}
+
+                    \put(-0.5, 20){\Box{12}{\gostRamkaFont Разраб. }}
+                    \put(-0.5, 15){\Box{14.5}{\gostRamkaFont Проверил }}
+                    \put(-0.5, 5){\Box{13.5}{\gostRamkaFont Н контр. }}
+                    \put(-0.5, 0){\Box{7.1}{\gostRamkaFont  Утв.}}
+
+                    \put(16.5, 20){\Box{20}{\gostRamkaFont Седко М.В. }}
+                    \put(16.5, 15){\Box{18.25}{\gostRamkaFont Неседко М.В. }}
+                    \put(16.5, 5){\Box{16}{\gostRamkaFont Неседко М.В. }}
+                    \put(16.5, 0){\Box{19}{\gostRamkaFont  Неседко М.В. }}
+
+                    \put(134.5, 0){\line(0,1){25}}
+                    \put(139.5, 15){\line(0,1){5}}
+                    \put(144.5, 15){\line(0,1){5}}
+                    \put(134.5, 20){\line(1,0){50}}
+                    \put(134.5, 15){\line(1,0){50}}
+                    \put(149.5, 15){\line(0,1){10}}
+                    \put(164.5, 15){\line(0,1){10}}
+
+                    \put(64.5, 0){\makebox(70,40){\cyrillicfont \englishfont \fontsize{10pt}{0pt}\selectfont \itshape Разработка платформы для обмена }}
+                    \put(64.5, 0){\makebox(70,30){\cyrillicfont \englishfont \fontsize{10pt}{0pt}\selectfont \itshape образовательными ресурсами }}
+                    \put(64.5, 0){\makebox(70,20){\cyrillicfont \englishfont \fontsize{10pt}{0pt}\selectfont \itshape и их изучения}}
+                    \put(64.5, 0){\makebox(70,7){\cyrillicfont \englishfont \fontsize{10pt}{0pt}\selectfont \itshape Пояснительная записка}}
+                    \put(134.5, 0){\makebox(49,15){\cyrillicfont \englishfont \fontsize{16pt}{0pt}\selectfont \itshape УО БрГТУ}}
+                    \put(134.5, 20){\Box{15}{\gostRamkaFont Лит }}
+                    \put(134.5, 15){\Box{5}{\gostRamkaFont Д }}
+                    \put(149.5, 20){\Box{15}{\gostRamkaFont Лист }}
+                    \put(149.5, 15){\Box{15}{\gostRamkaFont \thepage }}
+                    \put(164.5, 20){\Box{19}{\gostRamkaFont Листов }}
+                    \put(164.5, 15){\Box{19}{\gostRamkaFont 1 }}
+
+                \end{picture}
+            }
+        }
+    }
+    
+    \makeatletter
+    \def\@oddhead{\simpleGrad}
+    \def\@oddfoot{}
+    \makeatother
+
+    \newcounter{chaptercntr}
+    \setcounter{chaptercntr}{1}
+    \newcounter{subchaptercntr}
+    \setcounter{subchaptercntr}{1}
+
+    \newcommand\spc{\hspace{0.08cm}} 
